@@ -19,12 +19,9 @@ app.get('/webhook', async function (req, res) {
 /* handle whatsapp message */
 app.post("/webhook", async (req, res) => {
   try {
-    // req.body?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.type === 'document' 
-    if (
-      req.body?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.type === 'text'
-    ) {
-      console.log("Message:", req.body);
-    }
+
+    console.log("Message:", JSON.stringify(req.body));
+
     res.sendStatus(200);
   } catch (error) {
     console.error('Error handling webhook request:', error);
